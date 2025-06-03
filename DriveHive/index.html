@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DriveHive - Cruise through listings, compare prices, and lock in your next ride">
+    <meta name="keywords" content="cars, automotive, car dealership, compare prices, car shopping">
+    <title>DriveHive - Find Your Perfect Ride</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/app.js" as="script">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DriveHive - Find Your Perfect Ride">
+    <meta property="og:description" content="Cruise through listings, compare prices, and lock in your next ride—all in one sleek site.">
+    <meta property="og:url" content="https://drivehive.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DriveHive - Find Your Perfect Ride">
+    <meta name="twitter:description" content="Cruise through listings, compare prices, and lock in your next ride—all in one sleek site.">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="#" class="brand-link" aria-label="DriveHive Home">
+                        <span class="brand-icon">🚗</span>
+                        <span class="brand-text">DriveHive</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list" role="list">
+                        <li><a href="#search" class="nav-link">Search Cars</a></li>
+                        <li><a href="#compare" class="nav-link">Compare</a></li>
+                        <li><a href="#deals" class="nav-link">Deals</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="hero-title">
+                        Find Your Perfect <span class="text-accent">Ride</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Cruise through listings, compare prices, and lock in your next ride—all in one sleek site.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="scrollToSearch()">
+                            Start Shopping
+                        </button>
+                        <button class="btn btn-secondary">
+                            View Deals
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-placeholder">
+                        🚗 Premium Car Image Placeholder
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section id="search" class="search-section" aria-labelledby="search-title">
+            <div class="container">
+                <h2 id="search-title" class="section-title">Find Your Dream Car</h2>
+                
+                <div class="search-form" role="search">
+                    <div class="search-row">
+                        <div class="search-field">
+                            <label for="make-select" class="search-label">Make</label>
+                            <select id="make-select" class="search-input" aria-describedby="make-help">
+                                <option value="">Any Make</option>
+                                <option value="toyota">Toyota</option>
+                                <option value="honda">Honda</option>
+                                <option value="ford">Ford</option>
+                                <option value="bmw">BMW</option>
+                                <option value="mercedes">Mercedes-Benz</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                            <span id="make-help" class="sr-only">Select car manufacturer</span>
+                        </div>
+                        
+                        <div class="search-field">
+                            <label for="model-select" class="search-label">Model</label>
+                            <select id="model-select" class="search-input" aria-describedby="model-help">
+                                <option value="">Any Model</option>
+                            </select>
+                            <span id="model-help" class="sr-only">Select car model</span>
+                        </div>
+                        
+                        <div class="search-field">
+                            <label for="year-select" class="search-label">Year</label>
+                            <select id="year-select" class="search-input" aria-describedby="year-help">
+                                <option value="">Any Year</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                            </select>
+                            <span id="year-help" class="sr-only">Select car year</span>
+                        </div>
+                    </div>
+                    
+                    <div class="search-row">
+                        <div class="search-field price-range">
+                            <label for="price-min" class="search-label">Price Range</label>
+                            <div class="price-inputs">
+                                <input type="number" id="price-min" class="search-input" placeholder="Min" aria-label="Minimum price">
+                                <span class="price-separator">to</span>
+                                <input type="number" id="price-max" class="search-input" placeholder="Max" aria-label="Maximum price">
+                            </div>
+                        </div>
+                        
+                        <div class="search-field">
+                            <label for="location-input" class="search-label">Location</label>
+                            <input type="text" id="location-input" class="search-input" placeholder="Enter city or ZIP" aria-describedby="location-help">
+                            <span id="location-help" class="sr-only">Enter your location to find nearby cars</span>
+                        </div>
+                        
+                        <div class="search-field">
+                            <button type="submit" class="btn btn-primary search-btn" aria-describedby="search-btn-help">
+                                Search Cars
+                            </button>
+                            <span id="search-btn-help" class="sr-only">Search for cars matching your criteria</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Cars Section -->
+        <section class="featured-section" aria-labelledby="featured-title">
+            <div class="container">
+                <h2 id="featured-title" class="section-title">Featured Vehicles</h2>
+                
+                <div class="car-grid" role="list">
+                    <article class="car-card" role="listitem">
+                        <div class="car-image">
+                            <div class="car-placeholder">🚗 Car Image</div>
+                            <button class="compare-btn" aria-label="Add to comparison">+</button>
+                        </div>
+                        <div class="car-info">
+                            <h3 class="car-title">2023 Toyota Camry LE</h3>
+                            <p class="car-details">25,000 miles • Automatic • FWD</p>
+                            <div class="car-price">
+                                <span class="price-current">$24,999</span>
+                                <span class="price-original">$26,999</span>
+                            </div>
+                            <div class="car-actions">
+                                <button class="btn btn-primary">View Details</button>
+                                <button class="btn btn-secondary">Contact Dealer</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="car-card" role="listitem">
+                        <div class="car-image">
+                            <div class="car-placeholder">🚗 Car Image</div>
+                            <button class="compare-btn" aria-label="Add to comparison">+</button>
+                        </div>
+                        <div class="car-info">
+                            <h3 class="car-title">2022 Honda Civic Sport</h3>
+                            <p class="car-details">18,500 miles • Manual • FWD</p>
+                            <div class="car-price">
+                                <span class="price-current">$22,499</span>
+                            </div>
+                            <div class="car-actions">
+                                <button class="btn btn-primary">View Details</button>
+                                <button class="btn btn-secondary">Contact Dealer</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="car-card" role="listitem">
+                        <div class="car-image">
+                            <div class="car-placeholder">🚗 Car Image</div>
+                            <button class="compare-btn" aria-label="Add to comparison">+</button>
+                        </div>
+                        <div class="car-info">
+                            <h3 class="car-title">2024 BMW 3 Series</h3>
+                            <p class="car-details">5,200 miles • Automatic • AWD</p>
+                            <div class="car-price">
+                                <span class="price-current">$39,999</span>
+                                <span class="price-original">$42,999</span>
+                            </div>
+                            <div class="car-actions">
+                                <button class="btn btn-primary">View Details</button>
+                                <button class="btn btn-secondary">Contact Dealer</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compare Section -->
+        <section id="compare" class="compare-section" aria-labelledby="compare-title">
+            <div class="container">
+                <h2 id="compare-title" class="section-title">Compare Vehicles</h2>
+                <div class="compare-container">
+                    <div class="compare-placeholder">
+                        <p>Select vehicles from our listings to compare side-by-side</p>
+                        <button class="btn btn-secondary">Browse Cars</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">DriveHive</h3>
+                    <p class="footer-desc">Your trusted partner in finding the perfect vehicle.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#search">Search Cars</a></li>
+                        <li><a href="#compare">Compare</a></li>
+                        <li><a href="#deals">Deals</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Connect</h4>
+                    <div class="social-links" role="list">
+                        <a href="#" class="social-link" aria-label="Facebook" role="listitem">📘</a>
+                        <a href="#" class="social-link" aria-label="Twitter" role="listitem">🐦</a>
+                        <a href="#" class="social-link" aria-label="Instagram" role="listitem">📷</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn" role="listitem">💼</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DriveHive. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>
